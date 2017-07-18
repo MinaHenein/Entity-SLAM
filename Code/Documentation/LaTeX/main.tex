@@ -1,0 +1,77 @@
+  
+  %--------------------------------------------------------------
+%Preamble
+\documentclass[a4paper, twoside, 12pt]{article}
+
+\usepackage[pdftex, final]{graphicx}
+\graphicspath{{./pics/}}
+
+\usepackage{listings}
+\usepackage[framed,numbered,autolinebreaks,useliterate]{mcode}
+\usepackage[parfill]{parskip}
+\usepackage{amssymb}
+\usepackage{tensor}
+\usepackage{titlesec}
+\newcommand{\sectionbreak}{\clearpage}
+
+\setcounter{tocdepth}{6}
+\setcounter{secnumdepth}{6}
+%\setcounter{chapter}{1}
+%\usepackage{enumitem}
+%\setlist{nosep} % or \setlist{noitemsep} to leave space around whole list
+
+%filepath for figures
+\graphicspath{{./figures/}}
+
+
+%tikz
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\usetikzlibrary{arrows,positioning} 
+\tikzset{
+    %Define standard arrow tip
+    >=stealth',
+    %Define style for boxes
+    punkt/.style={
+           rectangle,
+           rounded corners,
+           draw=black, very thick,
+           text width=6.5em,
+           minimum height=2em,
+           text centered},
+    % Define arrow style
+    pil/.style={
+           ->,
+           thick,
+           shorten <=2pt,
+           shorten >=2pt,}
+}
+
+%--------------------------------------------------------------
+\begin{document}
+
+\title{Documentation:\\ Dynamic SLAM MATLAB Toolbox}
+\author{Montiel Abello}
+%\date{\vspace{-5ex}}
+\date{}  % Toggle commenting to test
+\maketitle
+
+\input{overview}
+\input{config}
+\input{camera}
+\input{map}
+\input{measurements}
+\input{graphfiles}
+\input{graph}
+\input{system}
+\input{solver}
+
+
+\bibliographystyle{IEEEtran}
+%\bibliographystyle{anuthesis}
+\bibliography{IEEEabrv,references}
+
+\end{document}     

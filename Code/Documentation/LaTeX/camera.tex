@@ -1,0 +1,43 @@
+\section{\texttt{Camera} Class}
+The \texttt{Camera} class models a moving camera sensor. The user determines the measurement parameters and pose over time.
+Measurements are simplified, given in the form of relative position of points with respect to the camera, in the frame of the camera.
+
+Selecting a camera generating function in a \texttt{setConfig} function:
+\begin{lstlisting}
+obj.cameraHandle = @generateCamera4_longerStreet;
+\end{lstlisting}
+
+Initialising the \texttt{Camera} class instance:
+\begin{lstlisting}
+camera = config.cameraHandle(config);
+\end{lstlisting}
+
+A simple camera generating function. FOV and max distance set in \texttt{setConfig}, pose configured here:
+\begin{lstlisting}
+function [camera] = generateCamera4_longerStreet(config)
+%GENERATECAMERA4_LONGERSTREET Generates camera class instance from config
+%   pose: linear and angular velocity about x,y,z axes
+%   camera sensor points in z direction of camera
+
+%% 1. Generate pose
+cameraPose = zeros(config.dimPose,config.nSteps);
+%constant linear velocity in x-axis direction, constant angular velocity about x-axis
+cameraPose(1,:) = linspace(1,-2,config.nSteps);
+cameraPose(2,:) = linspace(-10,40,config.nSteps);
+cameraPose(3,:) = linspace(10,15,config.nSteps);
+cameraPose(4,:) = linspace(-2/3*pi,-2/3*pi,config.nSteps);
+cameraPose(5,:) = linspace(0,0,config.nSteps);
+cameraPose(6,:) = linspace(pi/8,-pi/8,config.nSteps);
+
+%adjust based on parameterisation
+if strcmp(config.poseParameterisation,'SE3')
+    for i = 1:config.nSteps
+        cameraPose(:,i) = R3xso3_LogSE3(cameraPose(:,i));
+    end
+end
+
+%% 2. Create camera class instance
+camera = Camera(config,cameraPose);
+
+end
+\end{lstlisting}
