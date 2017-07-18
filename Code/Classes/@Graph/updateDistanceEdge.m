@@ -11,7 +11,7 @@ iDistanceVertex = iVertices(logicalDistanceVertex);
 
 %% 2. compute edge value
 planeParameters = cell2mat({obj.vertices(iPlaneVertices).value});
-planePlaneDistance = abs(planeParameters(4,1)-planeParameters(4,2)); %WRONG???
+planePlaneDistance = abs(planeParameters(4,1)-planeParameters(4,2));
 value = planePlaneDistance;
 
 %% 3. jacobians

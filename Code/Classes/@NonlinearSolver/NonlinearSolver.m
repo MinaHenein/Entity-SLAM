@@ -29,14 +29,6 @@
                     obj = obj.GNSolver(config,graph0,measurementsCell);
                 case 'Levenberg-Marquardt'
                     obj = obj.LMSolver(config,graph0,measurementsCell);
-                case 'Levenberg-Marquardt-g2o'
-                    obj = obj.LMSolver_g2o(config,graph0,measurementsCell);
-                case 'Levenberg-Marquardt-testing'
-                    obj = obj.LMSolverTesting(config,graph0,measurementsCell);
-                case 'Levenberg-Marquardt-C'
-                    obj = obj.LMSolver_C(config,graph0,measurementsCell);
-                case 'Levenberg-Marquardt-C2'
-                    obj = obj.LMSolver_C2(config,graph0,measurementsCell);
                 case 'Dog-Leg'
                     obj = obj.DLSolver(config,graph0,measurementsCell);
             end

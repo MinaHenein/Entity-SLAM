@@ -64,8 +64,6 @@ if ~isempty(iPlaneVertices)
     [~, kPerp] = buildKernel(size(obj.H,1), etas, positions);
     obj.kPerp = kPerp;
     obj.A = obj.A*obj.kPerp;
-%     system.Hk = kPerp'*system.H*kPerp;
-%     system.ck = kPerp'*system.c;
 else
     obj.kPerp = 1;
 end

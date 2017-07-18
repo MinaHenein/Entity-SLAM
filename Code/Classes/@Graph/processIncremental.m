@@ -202,7 +202,7 @@ for i = 1:nSteps
         iSolver = iSolver.solve(config,obj,measurementsCellCurrent);
         obj  = iSolver.graphs(end);%update graph
         
-        %undo reordering *TODO - only do this at the end
+        %undo reordering
         if config.sortEdges
             [obj] = obj.unsortEdges(newToOldEdges);
         end

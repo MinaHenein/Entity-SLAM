@@ -23,8 +23,6 @@ iPoses         = [];
 
 %% loop over constraints visible at time i
 for j = 1:nVisibleConstraints
-    %new observation, increment count
-%     observationCount = observationCount + 1;
     
     %index of observed constraint from ground truth map
     %this index acts as an identifier - dont use for indexing!!!
@@ -68,11 +66,9 @@ for j = 1:nVisibleConstraints
     switch constraint.type
         case 'point-plane'
             covariance = config.covPointPlane;
-%             value      = [];
             value = 0; %assumption - points ON plane
         case 'plane-plane-angle'
             covariance = config.covPlanePlaneAngle;
-%             value      = [];
             mu = zeros(size(config.stdPlanePlaneAngle));
             sigma = config.stdPlanePlaneAngle;
             angleGT = constraint.value;
@@ -83,12 +79,9 @@ for j = 1:nVisibleConstraints
             mu = zeros(size(config.stdPlanePlaneAngle));
             sigma = config.stdPlanePlaneAngle;
             angleGT = constraint.value;
-%             angleNoisy = addGaussianNoise(mu,sigma,angleGT);
-%             value      = angleNoisy;
             value = angleGT;
         case 'plane-plane-distance'
             covariance = config.covPlanePlaneDistance;
-%             value      = [];
             mu = zeros(size(config.stdPlanePlaneDistance));
             sigma = config.stdPlanePlaneAngle;
             distanceGT = constraint.value;

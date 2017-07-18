@@ -31,20 +31,6 @@ iObservedObjects(~observedObjects)   = 0;
 iObservedConstraints = cumsum(observedConstraints);
 iObservedConstraints(~observedConstraints) = 0;
 
-%remap indexes
-% observedConstraints = false(obj.nConstraints,1);
-% for i = 1:obj.nConstraints
-%     if ~(any(~iObservedObjects(obj.constraints(i).iObjects)) || ...
-%          any(~iObservedEntities(obj.constraints(i).iEntities)) || ...
-%          any(~iObservedEntities(obj.constraints(i).iChildEntities)) || ...
-%          any(~iObservedPoints(obj.constraints(i).iPoints)))
-%         observedConstraints(i) = 1;
-%     end
-% end
-% test = any(constraintVisibility,2);
-% iObservedConstraints = cumsum(observedConstraints);
-% iObservedConstraints(~observedConstraints) = 0;
-
 for i = 1:obj.nPoints
     obj.points(i).index        = iObservedPoints(obj.points(i).index);
     obj.points(i).iObjects     = iObservedObjects(obj.points(i).iObjects);

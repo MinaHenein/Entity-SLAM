@@ -102,23 +102,6 @@ for j = 1:nVisibleObjects
             obj.map.points(iPoints(k)).iObjects = addIndex(obj.map.points(iPoints(k)).iObjects,...
                                                             iObjects,'col','unique');
         end
-
-%         %***can create direct measurement of object parameters here
-%         %   create another observation, add noise to GT parameters
-%         %new observation, increment count
-%         observationCount = observationCount + 1;
-%         type = 'pose-cube';
-%         iPoses = i;
-%         objectParameters = map.object(jObject).parameters;
-%         switch map.objects(jObject).type
-%             case 'cube'
-%                 mu = zeros(size(config.stdPointCube));
-%                 sigma = config.stdPointCube;
-%             case {'angle','distance'}
-%                 %dont initialise from points
-%             otherwise
-%                 error('%s entity type not yet defined',map.entities(jEntity).type)
-%         end
         
         %store index    
         obj.iObjectObservations = [obj.iObjectObservations; index];

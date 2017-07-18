@@ -8,7 +8,6 @@ function positionsAbsolute = RelativeToAbsolutePosition(posesOldFrame, positions
 
 %to store absolute positions
 positionsAbsolute = zeros(size(positionsRelative));
-%VECTORISE THIS
 for i = 1:size(positionsRelative,2)
     screwOldFrame = [rot(posesOldFrame(4:6,i)) posesOldFrame(1:3,i);
                      0 0 0 1];

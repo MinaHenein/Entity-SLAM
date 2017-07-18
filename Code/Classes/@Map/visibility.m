@@ -116,11 +116,6 @@ for i = 1:camera.nPoses
         jChildEntities = obj.constraints(j).iChildEntities;
         jPoints        = obj.constraints(j).iPoints;
         %visibility of features
-        %constraint observed if seen before - not necessarily at same time
-%         jObjectsVisibility = any(objectVisibility(jObjects,1:i),2);
-%         jEntitiesVisibility = any(entityVisibility(jEntities,1:i),2);
-%         jChildEntitiesVisibility = any(entityVisibility(jChildEntities,1:i),2);
-%         jPointsVisibility = any(pointVisibility(jPoints,1:i),2);
         jObjectsVisibility = objectVisibility(jObjects,i);
         jEntitiesVisibility = entityVisibility(jEntities,i);
         jChildEntitiesVisibility = entityVisibility(jChildEntities,i);

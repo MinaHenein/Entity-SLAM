@@ -20,14 +20,8 @@ switch edgeLabel
         switch config.cameraControlInput
             case 'relativePose'
                 pose2 = config.relativeToAbsolutePoseHandle(pose1,controlInput);
-%                 pose2(4:6) = wrapAxisAngle(pose2(4:6),'pi');
-%                 pose2 = RelativeToAbsolutePose(pose1,controlInput);
-%                 pose2 = Relative2AbsoluteSE3(pose1,controlInput);
             case 'relativeVelocity'
                 pose2 = config.relativeToAbsolutePoseHandle(pose1,controlInput*config.dt);
-%                 pose2(4:6) = wrapAxisAngle(pose2(4:6),'pi');
-%                 pose2 = RelativeToAbsolutePose(pose1,controlInput*config.dt);
-%                 pose2 = Relative2AbsoluteSE3(pose1,controlInput*config.dt);
         end
     otherwise; error('error, wrong edgeLabel')
 end

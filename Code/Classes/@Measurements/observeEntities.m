@@ -115,23 +115,6 @@ for j = 1:nVisibleEntities
                                                             iEntities,'col','unique');
         end
 
-%         %***can create direct measurement of entity parameters here
-%         %   create another observation, add noise to GT parameters
-%         %new observation, increment count
-%         observationCount = observationCount + 1;
-%         type = 'pose-plane';
-%         iPoses = i;
-%         entityParameters = map.entities(jEntity).parameters;
-%         switch map.entities(jEntity).type
-%             case 'plane'
-%                 mu = zeros(size(config.stdPointPlane));
-%                 sigma = config.stdPointPlane;
-%             case {'angle','distance'}
-%                 %dont initialise from points
-%             otherwise
-%                 error('%s entity type not yet defined',map.entities(jEntity).type)
-%         end
-
         %store index    
         obj.iEntityObservations = [obj.iEntityObservations; index];
 

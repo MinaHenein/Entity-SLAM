@@ -23,8 +23,6 @@ positionRelative = edgeValue;
 switch config.cameraPointParameterisation
     case 'euclidean'
         positionAbsolute = config.relativeToAbsolutePointHandle(pose,positionRelative);
-%         positionAbsolute = RelativeToAbsolutePosition(pose,positionRelative);
-%         positionAbsolute = RelativePoint2AbsolutePoint3D(pose,positionRelative);
     otherwise
         error('%d point parameterisation not implemented',config.cameraPointParameterisation)
 end
